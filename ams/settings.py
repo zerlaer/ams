@@ -16,14 +16,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-cthe*m$6xn)ykxn7lcmdsf*74-615r_38_t%4)hz&$xs+60z&%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
 # Application definition
 
 INSTALLED_APPS = [
-    'simpleui'
+    'simpleui',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -87,7 +87,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'zh-cn'
+LANGUAGE_CODE = 'zh-hans'
 
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -99,10 +99,11 @@ USE_TZ = False
 
 # 配置静态文件
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 # 静态文件地址拼接，后面'static'文件为自己建立的存放静态文件（JS，IMG，CSS）的文件名
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),  # 主文件下静态文件
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),  # 主文件下静态文件
+# )
 
 # 配置文件上传目录
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/uploads')
