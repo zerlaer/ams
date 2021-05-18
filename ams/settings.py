@@ -24,6 +24,7 @@ ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'simpleui',
+    'import_export',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -33,17 +34,15 @@ INSTALLED_APPS = [
     'assets.apps.AssetsConfig',
 ]
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.cache.UpdateCacheMiddleware',
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    # 'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.cache.FetchFromCacheMiddleware',
-)
+]
 
 ROOT_URLCONF = 'ams.urls'
 
@@ -100,52 +99,38 @@ USE_TZ = False
 # 配置静态文件
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# 静态文件地址拼接，后面'static'文件为自己建立的存放静态文件（JS，IMG，CSS）的文件名
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),  # 主文件下静态文件
-# )
-
 # 配置文件上传目录
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/uploads')
 # MEDIA_URL是指从浏览器访问时的地址前缀。
 MEDIA_URL = '/uploads/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# 打印日志
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'level': 'DEBUG',
-            'class': 'logging.StreamHandler',
-        },
-    },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'propagate': True,
-            'level': 'DEBUG',
-        },
-    }
-}
+# # 打印日志
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'level': 'DEBUG',
+#             'class': 'logging.StreamHandler',
+#         },
+#     },
+#     'loggers': {
+#         'django.db.backends': {
+#             'handlers': ['console'],
+#             'propagate': True,
+#             'level': 'DEBUG',
+#         },
+#     }
+# }
 
-# 配置缓存
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'windows:./memcached.sock',
-        'KEY_PREFIX': 'ams',
-        'TIMEOUT': None
-    }
-}
 # 数据库配置
 MYDB = {
     'mysql': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'books',  # 你的数据库名称
+        'NAME': 'ams',  # 你的数据库名称
         'USER': 'root',  # 你的数据库用户名
-        'PASSWORD': '',  # 你的数据库密码
+        'PASSWORD': 'root',  # 你的数据库密码
         'HOST': '',  # 你的数据库主机，留空默认为localhost
         'PORT': '3306',  # 你的数据库端口
     },
@@ -157,3 +142,8 @@ MYDB = {
 DATABASES = {
     'default': MYDB.get('mysql')
 }
+
+# Simple UI 配置
+
+SIMPLEUI_HOME_INFO = False
+SIMPLEUI_ANALYSIS = False

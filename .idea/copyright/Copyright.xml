@@ -1,0 +1,7 @@
+<component name="CopyrightManager">
+  <copyright>
+    <option name="keyword" value="copyright" />
+    <option name="notice" value="# -*- coding: utf-8 -*-&#10;# @Time    : &amp;#36;{DATE} &amp;#36;{TIME}&#10;# @Author  : Zerlaer&#10;# @Email   : zerlaer@hotmail.com&#10;# @File    : &amp;#36;{NAME}.py&#10;# @Software: &amp;#36;{PRODUCT_NAME}&#10;# @License  MIT" />
+    <option name="myName" value="Copyright" />
+  </copyright>
+</component>
