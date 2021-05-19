@@ -49,7 +49,7 @@ ROOT_URLCONF = 'ams.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
+        'DIRS': [BASE_DIR, 'templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -99,30 +99,32 @@ USE_TZ = False
 # 配置静态文件
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 # 配置文件上传目录
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/uploads')
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'uploads')
+
 # MEDIA_URL是指从浏览器访问时的地址前缀。
 MEDIA_URL = '/uploads/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# # 打印日志
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'level': 'DEBUG',
-#             'class': 'logging.StreamHandler',
-#         },
-#     },
-#     'loggers': {
-#         'django.db.backends': {
-#             'handlers': ['console'],
-#             'propagate': True,
-#             'level': 'DEBUG',
-#         },
-#     }
-# }
+# 打印日志
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console'],
+            'propagate': True,
+            'level': 'DEBUG',
+        },
+    }
+}
 
 # 数据库配置
 MYDB = {
@@ -145,5 +147,50 @@ DATABASES = {
 
 # Simple UI 配置
 
-SIMPLEUI_HOME_INFO = False
-SIMPLEUI_ANALYSIS = False
+SIMPLEUI_HOME_INFO = False  # 关闭Simple信息
+SIMPLEUI_ANALYSIS = False  # 关闭用户数据收集
+
+SIMPLEUI_CONFIG = {
+    'system_keep': False,
+    'menus': [
+        {
+            'app': 'assets',
+            'name': '资产管理',
+            'icon': 'fa fa-server',
+            'models': [
+                {
+                    'name': '电脑设备',
+                    'url': 'assets/computer',
+                    'icon': 'el-icon-monitor'
+                },
+                {
+                    'name': '话机设备',
+                    'url': 'assets/sipphone',
+                    'icon': 'el-icon-phone-outline'
+                },
+                {
+                    'name': '耳机设备',
+                    'url': 'assets/headset',
+                    'icon': 'el-icon-service'
+                }
+            ]
+        },
+        {
+            'app': 'auth',
+            'name': '权限管理',
+            'icon': 'fas fa-user-shield',
+            'models': [
+                {
+                    'name': '用户管理',
+                    'url': 'auth/user',
+                    'icon': 'fa fa-user'
+                },
+                {
+                    'name': '用户组管理',
+                    'url': 'assets/group',
+                    'icon': 'fa fa-users'
+                }
+            ]
+        }
+    ]
+}
