@@ -1,0 +1,114 @@
+<!--信息登记页面-->
+
+{% extends "base.html" %}
+
+{% block title %}
+    员工信息登记
+{% endblock title %}
+{% block navtitle %}员工信息登记{% endblock %}
+
+{% block main %}
+    <p class="lead text-center text-primary m-0 font-weight-bold"
+       style="font-size: 30px;color: var(--indigo);padding: 20px;line-height: 30px;">
+        <i class="far fa-edit"></i>员工信息登记</p>
+    <br>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="card-body justify-content-center">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">员工姓名</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：张三"
+                       aria-describedby="basic-addon1" name="username">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">域账号</span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="例如：CDT210002"
+                       aria-describedby="basic-addon1" name="domain">
+
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">工作手机</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：19928702222"
+                       aria-describedby="basic-addon1" name="mobile">
+
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">话机号码</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：782054"
+                       aria-describedby="basic-addon1" name="tel">
+
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">耳机编号</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：00217054865"
+                       aria-describedby="basic-addon1" name="headset">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">入职日期</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：2020年1月1日"
+                       aria-describedby="basic-addon1" name="date">
+
+            </div>
+        </div>
+        <div class="text-danger text-center">{{ error }}</div>
+        <br>
+        <div class=" text-center">
+            <button type="submit" class="btn btn-facebook">提交信息
+            </button>
+        </div>
+    </form>
+
+
+    <br>
+
+
+    <div class="card-body">
+        <p class="text-center text-primary m-0 font-weight-bold"
+           style="font-size: 30px;color: var(--indigo);padding: 20px;line-height: 30px;text-align: left;">
+            <i class="far fa-list-alt" style="padding: 0px;"></i>&nbsp;已登记信息</p>
+        <div class="row" style="text-align: center;">
+            <div class="col-md-6 text-nowrap" style="text-align: center;">
+                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive table mt-2" id="dataTable" role="grid"
+             aria-describedby="dataTable_info">
+            <table class="table table-hover  table-bordered ">
+                <thead class="thead-light">
+                <tr class="text-center">
+                    <th>员工姓名</th>
+                    <th>员工域账号</th>
+                    <th>工作手机</th>
+                    <th>话机号码</th>
+                    <th>耳机SN</th>
+                    <th>入职日期</th>
+                    <th>登记日期</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td class="text-center">{{ item.username }}</td>
+                        <td class="text-center ">{{ item.domain }}</td>
+                        <td class="text-center">{{ item.mobile }}</td>
+                        <td class="text-center">{{ item.tel }}</td>
+                        <td class="text-center">{{ item.headset }}</td>
+                        <td class="text-center">{{ item.date }}</td>
+                        <td class="text-center ">{{ item.time }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

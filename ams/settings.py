@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'assets.apps.AssetsConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -161,36 +162,63 @@ SIMPLEUI_CONFIG = {
                 {
                     'name': '电脑设备',
                     'url': 'assets/computer',
-                    'icon': 'el-icon-monitor'
+                    'icon': 'fa fa-laptop'
                 },
                 {
-                    'name': '话机设备',
+                    'name': 'IP话机',
                     'url': 'assets/sipphone',
-                    'icon': 'el-icon-phone-outline'
+                    'icon': 'fa fa-microphone'
+                }, {
+                    'name': '模拟话机',
+                    'url': 'assets/telephone',
+                    'icon': 'fa fa-phone'
                 },
                 {
                     'name': '耳机设备',
                     'url': 'assets/headset',
-                    'icon': 'el-icon-service'
+                    'icon': 'fa fa-headphones'
                 }
+            ]
+        },
+        {
+            'app': 'users',
+            'name': '员工管理',
+            'icon': 'fa fa-address-book',
+            'models': [
+                {
+                    'name': '员工信息',
+                    'url': 'users/user',
+                    'icon': 'fa fa-id-badge'
+                },
+                {
+                    'name': '团队信息',
+                    'url': 'users/team',
+                    'icon': 'fa fa-trademark'
+                },
+                {
+                    'name': '部门信息',
+                    'url': 'users/department',
+                    'icon': 'fa fa-briefcase'
+                },
+
             ]
         },
         {
             'app': 'auth',
             'name': '权限管理',
-            'icon': 'fas fa-user-shield',
+            'icon': 'fa fa-cog',
             'models': [
                 {
                     'name': '用户管理',
                     'url': 'auth/user',
-                    'icon': 'fa fa-user'
+                    'icon': 'fa fa-user-plus'
                 },
                 {
                     'name': '用户组管理',
-                    'url': 'assets/group',
+                    'url': 'auth/group',
                     'icon': 'fa fa-users'
                 }
             ]
-        }
+        },
     ]
 }

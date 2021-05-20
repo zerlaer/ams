@@ -1,0 +1,86 @@
+<!--留言板页面-->
+
+{% extends "base.html" %}
+
+{% block title %}
+    常用网址提交
+{% endblock title %}
+{% block navtitle %}常用网址提交{% endblock %}
+{% block main %}
+
+    <p class="lead text-center text-primary m-0 font-weight-bold"
+       style="font-size: 30px;color: var(--indigo);padding: 20px;line-height: 30px;background: var(--light);">
+        <i class="far fa-edit" style="padding: 0px;"></i>网址提交</p>
+    <br>
+    <form action="/link/" method="POST">
+        {% csrf_token %}
+        <div class="card-body justify-content-center">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">网站名称</span>
+                </div>
+                <input type="text" class="form-control" placeholder="例如：诸葛月儿系统"
+                       aria-describedby="basic-addon1" name="site">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">网站链接</span>
+                </div>
+
+                <input type="text" class="form-control" placeholder="例如：tmr.cignacmb.com"
+                       aria-describedby="basic-addon1" name="url">
+
+
+            </div>
+        </div>
+
+        <div class="text-danger text-center">{{ error }}</div>
+        <br>
+
+        <div class=" text-center">
+            <button type="submit" class="btn btn-facebook">提交网址
+            </button>
+        </div>
+    </form>
+
+
+
+
+
+
+
+    <div class="card-body justify-content-center">
+
+        <p class="text-center text-primary m-0 font-weight-bold"
+           style="font-size: 30px;color: var(--indigo);padding: 20px;line-height: 30px;text-align: left;">
+            <i class="far fa-list-alt"></i>&nbsp;已登记信息</p>
+        <div class="row" style="text-align: center;">
+            <div class="col-md-6 text-nowrap" style="text-align: center;">
+                <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                </div>
+            </div>
+        </div>
+
+        <div class="table-responsive table mt-2" id="dataTable" role="grid"
+             aria-describedby="dataTable_info">
+            <table class="table table-hover  table-bordered ">
+                <thead class="thead-light">
+                <tr class="text-center">
+                    <th>网站名称</th>
+                    <th>网站链接</th>
+                    <th>提交时间</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in data %}
+                    <tr>
+                        <td class="text-center">{{ item.site }}</td>
+                        <td class="text-center ">{{ item.url }}</td>
+                        <td class="text-center">{{ item.time }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+{% endblock %}

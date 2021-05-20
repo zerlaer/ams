@@ -3,7 +3,7 @@ from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
 
-from .models import Computer, Headset, SipPhone
+from .models import Computer, Headset, SipPhone, Telephone
 
 
 # 注册 Computer 模块
@@ -22,6 +22,7 @@ class ComputerList(ImportExportModelAdmin):
 # Computer 导入导出
 class ComputerResource(resources.ModelResource):
     class Meta:
+
         model = Computer
         export_order = ['id', 'com_workplace', 'com_name', 'com_tag', 'com_type', 'com_model', 'com_sn',
                         'com_product_date', 'com_confirmed_date', 'com_owner', 'com_manufacturer', 'com_department',
@@ -47,6 +48,26 @@ class SipPhoneResource(resources.ModelResource):
         model = SipPhone
         export_order = ['id', 'sip_workplace', 'sip_model', 'sip_ip', 'sip_sn', 'sip_account1', 'sip_account2',
                         'sip_product_date', 'sip_confirmed_date', 'sip_manufacturer', 'sip_status']  # 导出的项目
+
+
+# 注册Telephone模块
+@admin.register(Telephone)
+class TelephoneList(ImportExportModelAdmin):
+    list_display = ['id', 'tel_workplace', 'tel_model', 'tel_gateway', 'tel_ext', 'tel_user', 'tel_product_date',
+                    'tel_confirmed_date', 'tel_manufacturer', 'tel_status', 'tel_ctime', 'tel_utime']  # 后台列表显示
+    list_per_page = 50  # 每页显示的数量
+    list_filter = ['tel_ext', 'tel_user', 'tel_status']  # 列表过滤
+    ordering = ['id']  # 按创建时间排序
+    list_editable = ['tel_ext', 'tel_user', 'tel_status']  # 可编辑项
+    search_fields = ['tel_ext', 'tel_user', 'tel_status']  # 可搜索项
+
+
+# Headset 导入导出
+class TelephoneResource(resources.ModelResource):
+    class Meta:
+        model = Telephone
+        export_order = ['id', 'tel_workplace', 'tel_model', 'tel_gateway', 'tel_ext', 'tel_user', 'tel_product_date',
+                        'tel_confirmed_date', 'tel_manufacturer', 'tel_status', 'tel_ctime', 'tel_utime']  # 导出的项目
 
 
 # 注册Headset模块
