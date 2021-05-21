@@ -1,12 +1,19 @@
-## Django 资产管理系统
+## AMS资产管理系统
 
 > Python3.8.5、Django +django-simpleui+ Bootstrap+MySQL
 
 ## 项目简介
 
-ams 是基于 Django +django-simpleui+ Bootstrap+MySQL的后台管理系统， 是我学习Django框架的练手项目，使用Django自带的admin管理后台修改而成；
+ams 是基于 Django +django-simpleui+ Bootstrap+MySQL的后台管理系统，
+是我学习Django框架的练手项目，使用Django自带的admin管理后台修改而成；开发初衷是想使用WEB页面+数据库代替Excel和纸质统计表；
+
+默认账号：admin，密码：admin
 
 目前前端已完成基本视图和路由，页面内容还未完成。
+
+![image-20210522025623430](https://image-zerlaer.oss-cn-chengdu.aliyuncs.com/image-20210522025623430.png)
+
+![image-20210522025427343](https://image-zerlaer.oss-cn-chengdu.aliyuncs.com/image-20210522025427343.png)
 
 ## 主要功能
 
@@ -59,9 +66,9 @@ ams 是基于 Django +django-simpleui+ Bootstrap+MySQL的后台管理系统， �
 安装教程：https://www.runoob.com/python/python-install.html
 2.Django 3.2.3
 安装教程：https://www.runoob.com/django/django-install.html
-5、django-simpleui 2021.5.21 
+3、django-simpleui 2021.5.21 
 安装教程：https://simpleui.72wo.com/docs/simpleui/doc.html
-5、MYSQL 8.0.0
+4、MYSQL 8.0.0
 安装教程：https://www.runoob.com/mysql/mysql-install.html
 
 ```
@@ -103,5 +110,5 @@ python manage.py migrate
 # 创建管理员: 
 python manage.py createsuperuser
 # 运行项目:
-python manage.py runserver
+python manage.py runserver --insecure
 ```
