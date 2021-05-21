@@ -8,14 +8,13 @@
             content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
     <title>{% block title %}{% endblock %}</title>
-    <link rel="shortcut icon" href="../static/img/cigna.png"/>
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"/>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="../static/fonts/fontawesome-all.min.css"/>
-    <link rel="stylesheet" href="../static/fonts/font-awesome.min.css"/>
-    <link rel="stylesheet" href="../static/fonts/line-awesome.min.css"/>
-    <link rel="stylesheet" href="../static/fonts/fontawesome5-overrides.min.css"/>
-    <link rel="stylesheet" href="../static/css/main.css"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/fonts/fontawesome-all.min.css"/>
+    <link rel="stylesheet" href="/static/fonts/font-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/fonts/line-awesome.min.css"/>
+    <link rel="stylesheet" href="/static/fonts/fontawesome5-overrides.min.css"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
 
 </head>
 
@@ -28,7 +27,7 @@
         <div class="container-fluid d-flex flex-column p-0">
             <a
                     class="navbar-brand d-flex justify-content-center align-items-center sidebar-brand m-0"
-                    href="index.html"
+                    href="/"
             >
                 <div
                         class="sidebar-brand-icon rotate-n-15"
@@ -37,7 +36,7 @@
                     <i
                             class="d-xl-flex justify-content-xl-center align-items-xl-center side"
                             style="
-                  background: url(../static/img/cigna.png) center / auto no-repeat;
+                  background: url(/static/img/docs.png) center / auto no-repeat;
                   border-radius: 4px;
                   text-align: center;
                   width: 40px;
@@ -57,17 +56,16 @@
                 <li class="nav-item">
                     <a
                             class="nav-link text-center"
-                            href="/"
+                            href="/dashboard/"
                             style="padding: 16px; font-size: 20px"
                     >
-                        <i class="fas fa-briefcase" style="font-size: 15px"></i>
+                        <i class="fa fa-tachometer" style="font-size: 15px"></i>
                         <span
                                 class="border-primary"
                                 data-bss-hover-animate="pulse"
                                 style="font-size: 15px; padding: 6px"
-                        ><strong>网址导航</strong></span
-                        ></a
-                    >
+                        ><strong>信息总览</strong></span
+                        ></a>
                 </li>
                 <li class="nav-item">
                     <a
@@ -87,30 +85,15 @@
                 <li class="nav-item">
                     <a
                             class="nav-link text-center"
-                            href="/link/"
+                            href="/getassets/"
                             style="padding: 16px; font-size: 20px"
                     >
-                        <i class="fa fa-link" style="font-size: 15px"></i>
+                        <i class="fas fa-server" style="width: 15px;height: 15px"></i>
                         <span
                                 class="border-primary"
                                 data-bss-hover-animate="pulse"
                                 style="font-size: 15px; padding: 6px"
-                        ><strong>网址提交</strong></span
-                        ></a
-                    >
-                </li>
-                <li class="nav-item">
-                    <a
-                            class="nav-link text-center"
-                            href="/message/"
-                            style="padding: 16px; font-size: 20px"
-                    >
-                        <i class="fas fa-comment-alt" style="font-size: 15px"></i>
-                        <span
-                                class="border-primary"
-                                data-bss-hover-animate="pulse"
-                                style="font-size: 15px; padding: 6px"
-                        ><strong>我要留言</strong></span
+                        ><strong>资产领用</strong></span
                         ></a
                     >
                 </li>
@@ -148,7 +131,7 @@
             <script>
                 function showinfo() {
                     alert(
-                            "1.留言板功能上线啦,可以开始开始留言了；\n2.新同事请在信息登记页面登记自己的信息，谢谢；\n3.桌面上的文件会每天清理；\n4.请将自己的桌面资料备份至CDDTC共享TMR资料备份文件夹。"
+                            "1.通知1；\n2.通知2；\n3.通知三"
                     );
                 }
             </script>
@@ -172,66 +155,22 @@
 <div id="footer" style="text-align: center; height: 60px; margin: 0">
     <div class="container" style="padding: 0">
         <div class="row">
-            <div
-                    class="col-md-3 d-xl-flex justify-content-xl-center align-items-xl-center"
-                    style="width: 100%; padding: 10px"
-            >
-                <h1 class="footerheadings" style="font-size: 15px">
-                    <i
-                            class="fas fa-comment-alt footericons"
-                            style="font-size: 18px"
-                    ></i
-                    >&nbsp;
-                    <a href="http://10.143.28.97:8080"><strong>留言板</strong></a>
-                </h1>
-            </div>
-            <div class="col-md-3">
-                <h1
-                        class="text-center d-xl-flex justify-content-xl-center align-items-xl-end footerheadings"
-                        style="font-size: 15px; padding: 10px"
-                >
-                    <i
-                            class="fa fa-phone d-xl-flex footericons"
-                            style="font-size: 18px"
-                    ></i
-                    >&nbsp; 18123346880
-                </h1>
-            </div>
-            <div class="col-md-3">
-                <h1 class="footerheadings" style="font-size: 15px; padding: 10px">
-                    <i
-                            class="fa fa-location-arrow footericons"
-                            style="font-size: 15px"
-                    ></i
-                    >&nbsp; 青羊区青羊工业园F19栋2楼
-                </h1>
-            </div>
-            <div class="col-md-3">
-                <h1 class="footerheadings" style="font-size: 15px; padding: 10px">
-                    <i
-                            class="fa fa-envelope footericons"
-                            style="font-size: 15px; padding: 0"
-                    ></i
-                    >&nbsp; sam.zhong@cignacmb.com
-                </h1>
-            </div>
+
+
+        </div>
+        <div
+                class="border-warning d-xl-flex justify-content-xl-center align-items-xl-center"
+                id="copyrightheading"
+        >
+            Designed By<a href="https://zerlaer.com" class="text-info"
+        ><strong>&nbsp;Zerlaer &nbsp;</strong></a
+        ><i class="fa fa-copyright"></i>&nbsp;2021 &nbsp;&nbsp;&nbsp;&nbsp;
         </div>
     </div>
-    <h1
-            class="border-warning d-xl-flex justify-content-xl-center align-items-xl-center"
-            id="copyrightheading"
-            style="text-align: center; padding: 0; margin: 0"
-    >
-        Designed By<a href="https://zerlaer.com" class="text-info"
-    ><strong>&nbsp;Sam Zhong &nbsp;</strong></a
-    ><i class="fa fa-copyright"></i>&nbsp;2021 &nbsp;&nbsp;&nbsp;&nbsp;
-        Powered By<a href="https://zerlaer.com" class="text-info"
-    ><strong>&nbsp;Django &nbsp;</strong></a
-    >
-    </h1>
 </div>
-<script src="../static/js/jquery.js"></script>
-<script src="../static/js/bootstrap.js"></script>
-<script src="../static/js/main.js"></script>
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/bootstrap.js"></script>
+<script src="/static/js/main.js"></script>
 </body>
 </html>

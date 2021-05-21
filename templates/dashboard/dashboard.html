@@ -1,0 +1,51 @@
+<!--信息总览页面-->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.1.1/dist/echarts.min.js"></script>
+{% extends "base.html" %}
+
+{% block title %}
+    信息总览
+{% endblock title %}
+{% block navtitle %}信息总览{% endblock %}
+
+{% block main %}
+    {% csrf_token %}
+    <div class="card-body">
+        <p class="text-center text-primary m-0 font-weight-bold"
+           style="font-size: 22px;color: var(--indigo);">
+            <i class="far fa-list-alt" style="padding: 0;"></i>&nbsp;资产信息</p>
+        <div id="main" style="width: 40%;height:400px;">
+            <script type="text/javascript">
+                // 基于准备好的dom，初始化echarts实例
+                const myChart = echarts.init(document.getElementById('main'));
+
+                // 指定图表的配置项和数据
+                const option = {
+                    title: {
+                        text: '电脑资产统计图',
+                    },
+                    tooltip: {},
+                    legend: {
+                        data: ['数量']
+                    },
+                    xAxis: {
+                        data: ["在线", "下线", "库存", "故障"]
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '数量',
+                        type: 'bar',
+                        data: [undefined{{ com_upline }}, undefined{{ com_offline }}, undefined{{ com_backup }}, {{ com_break }}]
+                    }]
+                };
+
+                // 使用刚指定的配置项和数据显示图表。
+                myChart.setOption(option);
+            </script>
+        </div>
+    </div>
+    <div class="card-body">
+        <p class="text-center text-primary m-0 font-weight-bold"
+           style="font-size: 22px;color: var(--indigo);">
+            <i class="far fa-list-alt"></i>&nbsp;人员信息</p>
+    </div>
+{% endblock %}
