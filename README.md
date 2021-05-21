@@ -1,10 +1,10 @@
 ## AMS资产管理系统
 
-> Python3.8.5、Django +django-simpleui+ Bootstrap+MySQL
+> Python3.8.5+Django3.2 + Bootstrap4.7 + MySQL8.0
 
 ## 项目简介
 
-ams 是基于 Django +django-simpleui+ Bootstrap+MySQL的后台管理系统，
+ams 是基于 Django+django-simpleui+ Bootstrap+MySQL的后台管理系统，
 是我学习Django框架的练手项目，使用Django自带的admin管理后台修改而成；开发初衷是想使用WEB页面+数据库代替Excel和纸质统计表；
 
 默认账号：admin，密码：admin
